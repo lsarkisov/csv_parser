@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="/css/styles.css" />
+    <title>Document</title>
+</head>
+<body>
+    <p><a href="/">BACK TO HOME</a></p>
+    <p th:if="${mos == null}">Sorry, there is no result. Try to upload data in CSV format.</p>
+    <table th:if="${mos}" >
+        <thead>
+            <td>soid</td>
+            <td>ts</td>
+            <td>grp</td>
+            <td>type</td>
+            <td>sybtype</td>
+            <td>url</td>
+            <td>orgid</td>
+            <td>formid</td>
+            <td>code</td>
+            <td>ltpa</td>
+            <td>sudirresponse</td>
+            <td>ymdh</td>
+        </thead>
+        <tr th:each="m : ${mos}">
+            <td><span td:text="${m.soid}">soid</span></td>
+            <td><span td:text="${m.ts}">ts</span></td>
+            <td><span th:text="${m.grp}">grp</span></td>
+            <td><span th:text="${m.type}">type</span></td>
+            <td><span th:text="${m.subtype}">sybtype</span></td>
+            <td><span th:text="${m.url}">url</span></td>
+            <td><span th:text="${m.orgid}">orgid</span></td>
+            <td><span th:text="${m.formid}">formid</span></td>
+            <td><span th:text="${m.code}">code</span></td>
+            <td><span th:text="${m.ltpa}">ltpa</span></td>
+            <td><span th:text="${m.sudirresponse}">sudirresponse</span></td>
+            <td><span th:text="${m.ymdh}">ymdh</span></td>
+        </tr>
+    </table>
+</body>
+</html>

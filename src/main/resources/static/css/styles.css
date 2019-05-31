@@ -1,0 +1,8 @@
+thead td {
+    font-weight: bold;
+    text-align: center;
+}
+
+td {
+    border: 1px solid gray;
+}
