@@ -10,7 +10,4 @@ import java.util.List;
 
 @Repository
 public interface CsvUploadRepository extends JpaRepository<MosModel, Long> {
-
-    @Query(value = "SELECT * FROM public.mos_uslugi ORDER BY ts limit :limit", nativeQuery = true)
-    List<MosModel> getTopFormsInLastOur(@Param("limit") int limit);
 }

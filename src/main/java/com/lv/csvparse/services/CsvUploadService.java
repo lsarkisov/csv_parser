@@ -7,6 +7,9 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -70,7 +73,7 @@ public class CsvUploadService {
         return csvUploadRepository.findAll();
     }
 
-    public List<MosModel> getTopFormsInLastOur() {
-        return csvUploadRepository.getTopFormsInLastOur(5);
+    public Page<MosModel> getTopFormsInLastOur() {
+        return csvUploadRepository.findAll(PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "ts")));
     }
 }
