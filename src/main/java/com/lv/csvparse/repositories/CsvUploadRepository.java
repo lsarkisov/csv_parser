@@ -1,6 +1,5 @@
 package com.lv.csvparse.repositories;
 
-import com.lv.csvparse.dto.TopUserFormsDto;
 import com.lv.csvparse.models.MosModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
