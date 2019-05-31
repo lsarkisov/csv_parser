@@ -1,5 +1,6 @@
 package com.lv.csvparse.services;
 
+import com.lv.csvparse.dto.TopFormsDto;
 import com.lv.csvparse.models.MosModel;
 import com.lv.csvparse.repositories.CsvUploadRepository;
 import com.opencsv.CSVParser;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,6 +26,7 @@ public class CsvUploadService {
     @Autowired
     CsvUploadRepository csvUploadRepository;
 
+    @Transactional
     public List<MosModel> uploadCsv(MultipartFile file) throws IOException {
 
         InputStream inputStream = file.getInputStream();
@@ -69,8 +72,8 @@ public class CsvUploadService {
         return csvUploadRepository.findAll();
     }
 
-    public List<MosModel> getTopUserForms() {
-        return csvUploadRepository.findAll();
+    public List<TopFormsDto> getTopUserForms() {
+        return csvUploadRepository.getTopUserForms();
     }
 
     public Page<MosModel> getTopFormsInLastOur() {

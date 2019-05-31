@@ -1,5 +1,6 @@
 package com.lv.csvparse.controllers;
 
+import com.lv.csvparse.dto.TopFormsDto;
 import com.lv.csvparse.services.CsvUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class CSVController {
@@ -28,8 +30,8 @@ public class CSVController {
 
     @GetMapping("/top/forms")
     public String  getTopUsersData(ModelMap model) {
-        model.addAttribute("mos",
-                this.csvUploadService.getTopUserForms());
+        List<TopFormsDto> result = this.csvUploadService.getTopUserForms();
+        model.addAttribute("mos", result);
         return "top-forms";
     }
 

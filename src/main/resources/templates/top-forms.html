@@ -13,17 +13,17 @@
     <p th:if="${mos == null}">Sorry, there is no result. Try to upload data in CSV format.</p>
     <table th:if="${mos}" >
         <thead>
-            <td>grp</td>
             <td>ogrid</td>
             <td>type</td>
             <td>url</td>
+            <td>ts</td>
             <td>ymdh</td>
         </thead>
         <tr th:each="m : ${mos}">
             <td><span th:text="${m.grp}">grp</span></td>
-            <td><span th:text="${m.orgid}">orgid</span></td>
             <td><span th:text="${m.type}">type</span></td>
             <td><span th:text="${m.url}">url</span></td>
+            <td><span th:text="${m.ts}">ts</span></td>
             <td><span th:text="${m.ymdh}">ymdh</span></td>
         </tr>
     </table>
