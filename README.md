@@ -2,7 +2,7 @@
 
 I use <b>Postgres</b> database <br>
 
-Please, update in application.properties file next fields
+Please, update in application.properties file the next fields
 
 <blockquote>
 spring.datasource.url=jdbc:postgresql://localhost:5432/${DB_NAME}<br />
